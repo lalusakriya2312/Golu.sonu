@@ -9,7 +9,7 @@
     margin: 0;
     height: 100vh;
     overflow: hidden;
-    background: url('https://lh3.googleusercontent.com/d/1Bqgm_tpmi1Py2gv_jWpI0ZSyQmwPPtNp') center/cover no-repeat;
+    background: url('https://i.ibb.co/npy1fhk/IMG-20251028-212942-830.jpg') center/cover no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -45,12 +45,11 @@
     transform: scale(1.05);
   }
 
-  /* Paragraph updated: black font, bold, readable */
   .message {
     font-size: 1.2rem;
-    font-family: "Arial Black", Gadget, sans-serif;
-    color: #000; /* black color */
-    text-shadow: 0 0 3px #555;
+    color: #000;
+    font-family: "Poppins", sans-serif;
+    text-shadow: 0 0 6px #ffb6c1;
     margin-top: 15px;
     display: none;
   }
@@ -69,21 +68,15 @@
     0% { transform: translateY(0) rotate(0); opacity: 1; }
     100% { transform: translateY(-800px) rotate(360deg); opacity: 0; }
   }
-
-  canvas {
-    position: absolute;
-    top: 0; left: 0;
-  }
 </style>
 </head>
 <body>
-  <canvas id="fireworks"></canvas>
   <div class="container">
-    <h1>🎉 Happy Birthday Sonu (Golu) 🎉</h1>
+    <h1>🎉 Happy Birthday Sonu (Golu) 🎂</h1>
     <div class="cake" id="cake"></div>
     <p class="message" id="msg">
       You’re the sparkle of every celebration, Sonu!  
-      Keep smiling like this always — the world shines brighter with your drama, laughter & love 💖😂🎈
+      Keep smiling like this always — the world shines brighter with your drama, laughter & love 💖😂🎈  
     </p>
   </div>
 
@@ -95,47 +88,9 @@
   cake.addEventListener("click", () => {
     if (!clicked) {
       msg.style.display = "block";
-      launchFireworks();
       clicked = true;
     }
   });
-
-  // Fireworks
-  const canvas = document.getElementById("fireworks");
-  const ctx = canvas.getContext("2d");
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-
-  function launchFireworks() {
-    const colors = ["#ff66cc","#ffcc00","#cc99ff","#ffffff","#ff99ff","#ffd700"];
-    for (let i = 0; i < 15; i++) {
-      setTimeout(() => {
-        const x = Math.random() * canvas.width;
-        const y = Math.random() * canvas.height / 2;
-        explode(x, y, colors[Math.floor(Math.random() * colors.length)]);
-      }, i * 300);
-    }
-  }
-
-  function explode(x, y, color) {
-    for (let i = 0; i < 30; i++) {
-      const angle = (Math.PI * 2 * i) / 30;
-      const speed = Math.random() * 4 + 1;
-      let px = x, py = y;
-      const vx = Math.cos(angle) * speed;
-      const vy = Math.sin(angle) * speed;
-      let life = 60;
-      const interval = setInterval(() => {
-        ctx.fillStyle = color;
-        ctx.fillRect(px, py, 3, 3);
-        px += vx;
-        py += vy;
-        vy += 0.05;
-        life--;
-        if (life <= 0) clearInterval(interval);
-      }, 16);
-    }
-  }
 
   // Balloons floating
   for (let i = 0; i < 10; i++) {
